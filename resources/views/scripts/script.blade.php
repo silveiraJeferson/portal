@@ -5,7 +5,7 @@
         $('.sidenav').sidenav();
         $('.tabs').tabs();
         $('select').formSelect();
-
+        $('.collapsible').collapsible();
        
 
 

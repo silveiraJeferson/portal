@@ -1,23 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Loto;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Loto\Loteria;
-use Illuminate\Support\Facades\DB;
 
-class LotoController extends Controller {
-
+class PainelController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $jogos = DB::table('loterias')->get();
-
-        return view('portal.loto.index', compact('jogos'));
+    public function index()
+    {
+        $sorteios = 'Lista de sorteios';
+        return view('portal.loto.pagina.lista_sorteios', compact('sorteios'));
     }
 
     /**
@@ -25,7 +22,8 @@ class LotoController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
@@ -35,13 +33,9 @@ class LotoController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        $jogo = new Loteria($request->all());
-        $jogo->save();
-        
-        
-
-        return redirect('/loto');
+    public function store(Request $request)
+    {
+        //
     }
 
     /**
@@ -50,7 +44,8 @@ class LotoController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         //
     }
 
@@ -60,7 +55,8 @@ class LotoController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         //
     }
 
@@ -71,7 +67,8 @@ class LotoController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         //
     }
 
@@ -81,8 +78,8 @@ class LotoController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         //
     }
-
 }

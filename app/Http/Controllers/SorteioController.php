@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Loto;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Http\Request;
-use App\Loto\Loteria;
-use Illuminate\Support\Facades\DB;
 
-class LotoController extends Controller {
+class SorteioController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,9 +12,7 @@ class LotoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $jogos = DB::table('loterias')->get();
-
-        return view('portal.loto.index', compact('jogos'));
+        //
     }
 
     /**
@@ -36,12 +31,34 @@ class LotoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $jogo = new Loteria($request->all());
-        $jogo->save();
         
-        
+        $meuArray = Array();
+        $file = fopen($request['arquivo'], 'r');
+        var_dump($file);
+        while (($line = fgetcsv($file)) !== false) {
+            $meuArray[] = $line;
+        }
+        fclose($file);
 
-        return redirect('/loto');
+        $ganhadores = [];
+        for ($i = 0; $i < count($meuArray); $i++) {
+            $jogo = [];
+            $jogo['concurso'] = $meuArray[$i][0];
+            $jogo['data'] = $meuArray[$i][1];
+            $dezenas = [];
+            for ($j = 2; $j < count($meuArray[$i]); $j++) {
+
+                $dezenas[] = $meuArray[$i][$j];
+            }
+
+            $jogo['dezenas'] = $dezenas;
+            $ganhadores[] = $jogo;
+        }
+        session()->put('sorteios', $ganhadores);
+        
+        return redirect('/painel');
+          
+         
     }
 
     /**
