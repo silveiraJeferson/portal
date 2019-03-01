@@ -8,7 +8,7 @@
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
                 <li><a href="collapsible.html">Javascript</a></li>
-                <li>@include('portal.partes.header.form_login')</li>
+<!--                <li>@include('portal.partes.header.form_login')</li>-->
             </ul>
         </div>
     </nav>

@@ -12,11 +12,22 @@
 */
 
 
-
+Route::resource('/loto', 'Loto\LotoController');
 Route::resource('/sorteio', 'SorteioController');
 Route::resource('/painel', 'PainelController');
+
+//----------------------------------------------------------------gestao
 Route::resource('/gestao', 'GestaoController');
-Route::resource('/loto', 'Loto\LotoController');
+Route::resource('/contas', 'ContasController');
+
+
+
+
+
+
+
+
+
 
 Route::get('/', function () {
     return view('portal.partes.main.main');

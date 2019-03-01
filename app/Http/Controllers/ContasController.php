@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-
-class GestaoController extends Controller
+use App\Conta;
+class ContasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,9 @@ class GestaoController extends Controller
      */
     public function index()
     {
-        return view('portal.gestao.index');
+        
+        session()->put('contas', Conta::all());
+        return view('portal.gestao.contas.index');
     }
 
     /**
@@ -23,7 +25,7 @@ class GestaoController extends Controller
      */
     public function create()
     {
-        //
+        return view('portal.gestao.contas.create');
     }
 
     /**
@@ -34,7 +36,10 @@ class GestaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $conta = new Conta($request->all());
+        $conta->save();
+        
+        return redirect('/contas');
     }
 
     /**
@@ -45,7 +50,8 @@ class GestaoController extends Controller
      */
     public function show($id)
     {
-        //
+        $show = Conta::where('id', $id)->get();
+        return view('portal.gestao.contas.show',compact('show'));
     }
 
     /**
@@ -79,6 +85,8 @@ class GestaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        Conta::where('id', $id)->update(['visible' => false]);
+        return redirect('/contas');
     }
 }

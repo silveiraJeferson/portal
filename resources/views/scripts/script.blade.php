@@ -6,7 +6,8 @@
         $('.tabs').tabs();
         $('select').formSelect();
         $('.collapsible').collapsible();
-       
+        $('.tooltipped').tooltip();
+        $('.modal').modal();
 
 
     });
