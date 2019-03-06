@@ -31,7 +31,7 @@ class SorteioController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        
+        $id = ($request['jogo']);
         $meuArray = Array();
         $file = fopen($request['arquivo'], 'r');
         var_dump($file);
@@ -56,7 +56,7 @@ class SorteioController extends Controller {
         }
         session()->put('sorteios', $ganhadores);
         
-        return redirect('/painel');
+        return redirect("/loteria/$id");
           
          
     }

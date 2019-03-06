@@ -13,6 +13,7 @@
 
 
 Route::resource('/loto', 'Loto\LotoController');
+Route::resource('/loteria', 'Loto\LoteriaController');
 Route::resource('/sorteio', 'SorteioController');
 Route::resource('/painel', 'PainelController');
 

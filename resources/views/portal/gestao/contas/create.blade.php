@@ -1,5 +1,5 @@
-@extends('portal.gestao.contas.index')
-@section('conteudo')
+@extends('portal.gestao.index')
+@section('contas')
 
 <h5>Adicionar Contas</h5>
 <div class="row ">

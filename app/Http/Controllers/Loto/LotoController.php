@@ -15,9 +15,9 @@ class LotoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        
         $jogos = DB::table('loterias')->get();
-
-        return view('portal.loto.index', compact('jogos'));
+        return view('portal.loto.pagina.inicio', compact('jogos'));
     }
 
     /**

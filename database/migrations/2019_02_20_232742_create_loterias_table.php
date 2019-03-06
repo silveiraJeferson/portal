@@ -18,6 +18,7 @@ class CreateLoteriasTable extends Migration
             $table->string('nome');
             $table->integer('qdt_sorteados');
             $table->integer('num_possiveis');
+            $table->longText('instrucao');
             
             
             $table->timestamps();

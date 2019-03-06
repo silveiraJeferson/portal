@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/var/www/html/portal/app/Conta.php</file>
-            <file>file:/var/www/html/portal/resources/views/portal/gestao/contas/index.blade.php</file>
-            <file>file:/var/www/html/portal/resources/views/portal/gestao/contas/show.blade.php</file>
-            <file>file:/var/www/html/portal/resources/views/portal/gestao/contas/create.blade.php</file>
-            <file>file:/var/www/html/portal/app/Http/Controllers/GestaoController.php</file>
-            <file>file:/var/www/html/portal/resources/views/portal/gestao/graficos/barras.blade.php</file>
-            <file>file:/var/www/html/portal/routes/web.php</file>
-            <file>file:/var/www/html/portal/app/Http/Controllers/ContasController.php</file>
-            <file>file:/var/www/html/portal/resources/views/scripts/script.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loteria extends Model
 {
-    protected $fillable = ['id', 'nome', 'qdt_sorteados', 'num_possiveis'];
+    protected $fillable = ['id', 'nome', 'qdt_sorteados', 'num_possiveis', 'instrucao'];
 }

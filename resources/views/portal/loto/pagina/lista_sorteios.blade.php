@@ -1,7 +1,10 @@
 <?php
-$sorteios = session()->get('sorteios');
-
-
+if (session()->get('sorteios')) {
+    $sorteios = session()->get('sorteios');
+}else{
+    
+    $sorteios = null;
+}
 ?>
 @extends('portal.loto.pagina.painel')
 @section('centro')
@@ -17,26 +20,28 @@ $sorteios = session()->get('sorteios');
         </thead>
 
         <tbody>
+            @if($sorteios)
             @forelse($sorteios as $sorteio)
             <tr>
                 <td>{{$sorteio['concurso']}}</td>
                 <td>{{$sorteio['data']}}</td>
-                    <?php sort($sorteio['dezenas'])?>
+                <?php sort($sorteio['dezenas']) ?>
                 <td>
-                   @foreach($sorteio['dezenas'] as $dezena)
+                    @foreach($sorteio['dezenas'] as $dezena)
                     @if($dezena < 10)
-                        0{{$dezena}} -
+                    0{{$dezena}} -
                     @else
-                        {{$dezena}} -
+                    {{$dezena}} -
                     @endif
-                    
-                   @endforeach
+
+                    @endforeach
                 </td>
             </tr>
             @empty
-            
+
             @endforelse
-            
+            @endif
+
         </tbody>
     </table>
 </div>

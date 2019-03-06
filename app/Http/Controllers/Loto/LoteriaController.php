@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Loto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Loto\Loteria;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class LoteriaController extends Controller
 {
@@ -13,7 +16,7 @@ class LoteriaController extends Controller
      */
     public function index()
     {
-        //
+        dd('oi');
     }
 
     /**
@@ -45,7 +48,12 @@ class LoteriaController extends Controller
      */
     public function show($id)
     {
-        //
+        session()->forget('loteria');
+        $jogo = Loteria::where('id', $id)->get();
+        $jogo = $jogo[0];
+        session()->put('loteria', $jogo);
+        
+       return view('portal.loto.pagina.dashboard');
     }
 
     /**
